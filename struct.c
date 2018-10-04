@@ -1,10 +1,11 @@
+
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
 #include <stdlib.h>
 
 struct foo{int a; char bar[12];};
-  char cat[12] = "wownewnumber";//kept outside to keep out weird symbols
+  char cat[12] = "heylookatme";//kept outside to keep out weird symbols
 //random stuffing
 struct foo *re(struct foo b){
   b.a=rand();
@@ -20,7 +21,7 @@ struct foo *re(struct foo b){
   return pointer;
 }
 void print(struct foo test){
-  printf("This is it: %d and %s\n", re(test)->a, re(test)->bar);//prints out example created  
+  printf("This is a Level %d, %s\n", re(test)->a, strcat(re(test)->bar,"mon"));//prints out example created  
 }
 
 void modify(struct foo * thing, int interger,  char c[] ) {
@@ -35,6 +36,7 @@ int main() {
   print(test);
   printf("%s\n", cat);
   modify(&test, 12, cat);
-  printf("What is the new number? %d and What is the  new string?%s\n",test.a,test.bar);
+  printf("Your Digimon is evolving!!!\n");
+  printf("What is the new Level? %d and What is the name of the evolution?  %s\n",test.a,strcat(test.bar,"mon"));
 
 }
