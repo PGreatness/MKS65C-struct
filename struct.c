@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 struct foo{int a; char bar[12];};
-  char cat[12] = "heylookatme";//kept outside to keep out weird symbols
+  char cat[12] = "whatsup";//kept outside to keep out weird symbols
 //random stuffing
 struct foo *re(struct foo b){
   b.a=rand();
