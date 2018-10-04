@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 struct foo{int a; char bar[12];};
-
 //random stuffing
 struct foo *re(struct foo b){
   b.a=rand();
@@ -13,17 +12,12 @@ struct foo *re(struct foo b){
   return pointer;
 }
 void print(struct foo test){
-  printf("This is it: %i and %s\n", re(test)->a, re(test)->bar);
+  printf("This is it: %d and %s\n", re(test)->a, re(test)->bar);//prints out example created  
 }
 
-struct foo * modify(struct foo * thing, int interger,  char c[] ) {
-  thing->a = interger;
-  if (sizeof(*c) <= sizeof(thing->bar)) {
-    return NULL;
-  }
-  strcpy(thing->bar, c);
-  struct foo * pointer = thing;
-  return pointer;
+void modify(struct foo * thing, int interger,  char c[] ) {
+  thing->a = interger;//value of the pointer reassigns to value of new integer.
+  strcpy(thing->bar, c);//copies new string onto old string
   
 }
 
@@ -31,9 +25,9 @@ int main() {
   srand(time(NULL));
   struct foo test;
   print(test);
-  char cat[12] = "q12we2po2123";
+  char cat[12] = "wownewnumber";
   printf("%s\n", cat);
   modify(&test, 12, cat);
-  print(test);
+  printf("What is the new number? %d and What is the  new string?%s\n",test.a,test.bar);
 
 }
