@@ -4,10 +4,18 @@
 #include <stdlib.h>
 
 struct foo{int a; char bar[12];};
+  char cat[12] = "wownewnumber";//kept outside to keep out weird symbols
 //random stuffing
 struct foo *re(struct foo b){
   b.a=rand();
-  strcpy(b.bar, "chocolate");
+  int i=0;
+  for(;i<sizeof(b.bar);i++){
+    int letter = rand()%26 +97;
+    char a= letter;
+    b.bar[i]=a;
+  }
+  
+  //strcpy(b.bar, "chocolate");
   struct foo * pointer = &b;
   return pointer;
 }
@@ -25,7 +33,6 @@ int main() {
   srand(time(NULL));
   struct foo test;
   print(test);
-  char cat[12] = "wownewnumber";
   printf("%s\n", cat);
   modify(&test, 12, cat);
   printf("What is the new number? %d and What is the  new string?%s\n",test.a,test.bar);
